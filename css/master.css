@@ -51,7 +51,7 @@ header .container {
 	background-size: .65em auto, 100%;
 }
 
-.disk-container {
+.disks-container {
     display: flex;
     justify-content: center;
     align-items: center;

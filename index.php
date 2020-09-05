@@ -24,7 +24,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js"></script>
     <script id="disk-template" type="text/x-handlebars-template">
       <div class="disk" data-genre="{{ genre }}">
-          <img src="{{ poster }}" alt="">
+          <img src="{{ poster }}" alt="Disk Poster">
           <h3>{{ title }}</h3>
           <span class="author">{{ author }}</span>
           <span class="year">{{ year }}</span>
@@ -41,25 +41,25 @@
           </select>
       </div>
     </header>
-    <div class="disk-container container">
+    <div class="disks-container container">
       <?php
-      include __DIR__.'/vars.php';
-      $disks = $db['response'];
-      foreach ($disks as $disk) {
-        $poster = $disk['poster'];
-        $title = $disk['title'];
-        $author = $disk['author'];
-        $genre = $disk['genre'];
-        $year = $disk['year'];
+      // include __DIR__.'/vars.php';
+      // $disks = $db['response'];
+      // foreach ($disks as $disk) {
+      //   $poster = $disk['poster'];
+      //   $title = $disk['title'];
+      //   $author = $disk['author'];
+      //   $genre = $disk['genre'];
+      //   $year = $disk['year'];
         ?>
-        <div class="disk" data-genre="<?php echo $genre; ?>">
-            <img src="<?php echo $poster; ?>" alt="Poster">
+        <!-- <div class="disk" data-genre="<?php echo $genre; ?>">
+            <img src="<?php echo $poster; ?>" alt="Disk Poster">
             <h3><?php echo $title; ?></h3>
             <span class="author"><?php echo $author; ?></span>
             <span class="year"><?php echo $year; ?></span>
-        </div>
+        </div> -->
         <?php
-      }
+      // }
        ?>
 
     </div>
