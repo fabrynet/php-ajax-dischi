@@ -6,11 +6,11 @@ function addListeners() {
     var genre = $('#select-genre').val();
     filterDisks(author, genre);
   });
-  // $('#select-genre').change(function() {
-  //   var author = $('#select-author').val();
-  //   var genre = $('#select-genre').val();
-  //   filterDisks(author, genre);
-  // });
+  $('#select-genre').change(function() {
+    var author = $('#select-author').val();
+    var genre = $('#select-genre').val();
+    filterDisks(author, genre);
+  });
 }
 
 function printSelectAuthor () {
@@ -83,12 +83,20 @@ function filterDisks(author, genre) {
     url: `server.php`,
     method: 'GET',
     data: {
-      author: author
+      author: author,
+      genre: genre
     },
     success: function(data) {
-      $('.disks-container').html('');
+      var target = $('.disks-container');
+      target.html('');
+
       var disks = data['response'];
-      printDisks(disks);
+      if (disks) {
+        printDisks(disks);
+      } else {
+        target.text('Nessun risultato trovato')
+      }
+
     },
     error: function(err) {
       console.log('err',err);
