@@ -30,15 +30,25 @@
           <span class="year">{{ year }}</span>
       </div>
     </script>
+    <script id="author-template" type="text/x-handlebars-template">
+      <option value="{{ author }}">{{ author }}</option>
+    </script>
+    <script id="genre-template" type="text/x-handlebars-template">
+      <option value="{{ genre }}">{{ genre }}</option>
+    </script>
   </head>
   <body>
     <header>
       <div class="container">
-          <img src="img/logo.png" alt="logo" />
-          <select id="select-artist" name="">
+        <img src="img/logo.png" alt="logo" />
+        <div class="">
+          <select id="select-author" name="">
             <option value="" selected="selected">Seleziona un artista</option>
-            <option value="Pop"></option>
           </select>
+          <select id="select-genre" name="">
+            <option value="" selected="selected">Seleziona un genere</option>
+          </select>
+        </div>
       </div>
     </header>
     <div class="disks-container container">

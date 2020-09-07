@@ -2,7 +2,7 @@
 
 header('content-type:application/json');
 
-include 'vars.php';
+include 'database.php';
 
 echo json_encode($db);
 
