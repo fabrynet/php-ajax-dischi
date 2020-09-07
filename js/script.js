@@ -6,11 +6,11 @@ function addListeners() {
     var genre = $('#select-genre').val();
     filterDisks(author, genre);
   });
-  $('#select-genre').change(function() {
-    var author = $('#select-author').val();
-    var genre = $('#select-genre').val();
-    filterDisks(author, genre);
-  });
+  // $('#select-genre').change(function() {
+  //   var author = $('#select-author').val();
+  //   var genre = $('#select-genre').val();
+  //   filterDisks(author, genre);
+  // });
 }
 
 function printSelectAuthor () {
@@ -39,8 +39,8 @@ function printSelectAuthor () {
         }
       }
     },
-    error: function(error) {
-      console.log(error);
+    error: function(err) {
+      console.log('err',err);
     }
   });
 }
@@ -71,8 +71,8 @@ function printSelectGenre () {
         }
       }
     },
-    error: function(error) {
-      console.log(error);
+    error: function(err) {
+      console.log('err',err);
     }
   });
 }
@@ -81,14 +81,19 @@ function printSelectGenre () {
 function filterDisks(author, genre) {
   $.ajax({
     url: `server.php`,
-    method: 'POST',
+    method: 'GET',
+    data: {
+      author: author
+    },
     success: function(data) {
+      console.log('data filtered',data);
       $('.disks-container').html('');
-      var disks = data['response'];
+      var disks = data;
+      console.log('disks filtered', disks);
       printDisks(disks);
     },
     error: function(err) {
-      console.log(err);
+      console.log('err',err);
     }
   });
 }
@@ -102,7 +107,7 @@ function getData() {
       printDisks(disks);
     },
     error: function(err) {
-      console.log(err);
+      console.log('err',err);
     }
   });
 }
