@@ -5,10 +5,10 @@ header('content-type:application/json');
 include 'database.php';
 
 $data = [];
-$noFilters = (!$_GET['author'] || $_GET['author'] === '')
-              && (!$_GET['genre'] || $_GET['genre'] === '');
-$authorFilter = $_GET['author'] || $_GET['author'] !== '';
-$genreFilter = $_GET['genre'] || $_GET['genre'] !== '';
+$noFilters = (is_null($_GET['author']) || $_GET['author'] === '')
+              && (is_null($_GET['genre']) || $_GET['genre'] === ''); //is_null mi restituisce vero solo se la variabile $_GET è null, evito il pericolo che mi restituisca vero se $_GET = false
+$authorFilter = !is_null($_GET['author']) && $_GET['author'] !== '';
+$genreFilter = !is_null($_GET['genre']) && $_GET['genre'] !== '';
 
 $author = $_GET['author'];
 $genre = $_GET['genre'];
