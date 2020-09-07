@@ -86,10 +86,8 @@ function filterDisks(author, genre) {
       author: author
     },
     success: function(data) {
-      console.log('data filtered',data);
       $('.disks-container').html('');
-      var disks = data;
-      console.log('disks filtered', disks);
+      var disks = data['response'];
       printDisks(disks);
     },
     error: function(err) {
